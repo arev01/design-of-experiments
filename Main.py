@@ -29,7 +29,7 @@ st.markdown(
     Online tool for generation and visualisation of experimental designs.  
     
     ### Getting Started  
-    **👈 Need help to get started?** Go to the 'Help' section from the sidebar and learn the easy steps needed to generate your first experimental design.  
+    **👈 Need help to get started?** Go to the 'Help' section from the sidebar and learn the easy steps needed to create your first experimental design.  
     **👈 Hungry for more?** Go to the 'Config' section from the sidebar and unlock advanced functionalities.
     """
 )
