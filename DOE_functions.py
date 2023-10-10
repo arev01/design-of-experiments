@@ -50,7 +50,7 @@ def build_full_fact(factor_level_ranges, samples):
     for key in factor_level_ranges:
         factor_lists.append(factor_level_ranges[key])
     
-    x=fullfact([samples]*factor_count)
+    x=fullfact_corrected([samples]*factor_count)
 
     scaler=preprocessing.MinMaxScaler()
     x_norm=scaler.fit_transform(x)
@@ -88,7 +88,7 @@ def build_box_behnken(factor_level_ranges, center=1):
     for key in factor_level_ranges:
         factor_lists.append(factor_level_ranges[key])
     
-    x=bbdesign(factor_count,center=center)
+    x=bbdesign_corrected(factor_count,center=center)
     x=x+1 #Adjusting the index up by 1
 
     scaler=preprocessing.MinMaxScaler()
