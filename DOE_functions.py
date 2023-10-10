@@ -265,7 +265,7 @@ def build_central_composite(factor_level_ranges,center=(2,2),alpha='o',face='ccc
     for key in factor_level_ranges:
         factor_lists.append(factor_level_ranges[key])
     
-    x=ccdesign(factor_count,center=center,alpha=alpha,face=face)
+    x=ccdesign_corrected(factor_count,center=center,alpha=alpha,face=face)
     factor_lists=np.array(factor_lists)
     
     scaler=preprocessing.MinMaxScaler()
