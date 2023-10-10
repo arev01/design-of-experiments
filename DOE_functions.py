@@ -1,4 +1,5 @@
 from pyDOE import *
+from pyDOE_corrected import *
 from diversipy import *
 import numpy as np
 import pandas as pd
