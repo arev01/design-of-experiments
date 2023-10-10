@@ -36,21 +36,21 @@ def generate_DOE(doe_choice, infile):
         
     if doe_choice == "Full-Factorial":
         levels=st.text_input("Select the number of evenly spaced levels per factor", key="textbox_levels")
-        #try:
-        levels=int(levels)
-        df=build_full_fact(dict_vars, levels)
-        #except:
-        #    st.error("Wrong input (not convertible to integer).")
-        #    return (-1, -1)
+        try:
+            levels=int(levels)
+            df=build_full_fact(dict_vars, levels)
+        except:
+            st.error("Wrong input (not convertible to integer).")
+            return (-1, -1)
         
     if doe_choice == "Box-Behnken":
         points=st.text_input("Select the number of center points to include", key="textbox_points")
-        #try:
-        points=int(points)
-        df=build_box_behnken(dict_vars, points)
-        #except:
-        #    st.error("Wrong input (not convertible to integer).")
-        #    return (-1, -1)
+        try:
+            points=int(points)
+            df=build_box_behnken(dict_vars, points)
+        except:
+            st.error("Wrong input (not convertible to integer).")
+            return (-1, -1)
         
     if doe_choice == "Simple-Latin-Hypercube":
         samples=st.text_input("Select the overall number of samples for your experiment", key="textbox_samples")
