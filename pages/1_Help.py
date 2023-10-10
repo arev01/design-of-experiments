@@ -45,7 +45,7 @@ st.markdown(
 
 st.markdown(
     """
-    *Note: The variable names and their ranges (2-level i.e. min/max) are specified in an input file using a Python table data structure. This file can be edited with a normal spreadsheet program (e.g. Microsoft Excel) or using any text editor, but it must be saved in csv format. An example is shown below:*
+    *Note: The variable names and their ranges (2-level i.e. min/max) are specified in an input file using a Python array data structure. This file can be edited with a normal spreadsheet program (e.g. Microsoft Excel) or using any text editor, but it must be saved in csv format. An example is shown below:*
     """
 )
 
