@@ -87,4 +87,4 @@ if in_file:
         button = st.download_button("Download", out_file, filename, "text/csv")
 
         if button:
-            st.success("Successfully downloaded!")
+            st.success("Download successful!")
