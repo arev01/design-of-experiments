@@ -1,7 +1,7 @@
 import re
 import numpy as np
 
-__all__ = ['ccdesign']
+#__all__ = ['ccdesign_corrected']
 
 def ccdesign_corrected(n, center=(4, 4), alpha='orthogonal', face='circumscribed'):
     """
