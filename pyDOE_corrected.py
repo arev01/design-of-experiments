@@ -1,22 +1,5 @@
-"""
-This code was originally published by the following individuals for use with
-Scilab:
-    Copyright (C) 2012 - 2013 - Michael Baudin
-    Copyright (C) 2012 - Maria Christopoulou
-    Copyright (C) 2010 - 2011 - INRIA - Michael Baudin
-    Copyright (C) 2009 - Yann Collette
-    Copyright (C) 2009 - CEA - Jean-Marc Martinez
-    
-    website: forge.scilab.org/index.php/p/scidoe/sourcetree/master/macros
-
-Much thanks goes to these individuals. It has been converted to Python by 
-Abraham Lee.
-"""
-
 import re
 import numpy as np
-
-#__all__ = ['np', 'fullfact_corrected', 'ff2n', 'fracfact']
 
 def fullfact_corrected(levels):
     """
@@ -64,6 +47,7 @@ def fullfact_corrected(levels):
                [ 1.,  3.,  2.]])
                
     """
+    
     n = len(levels)  # number of factors
     nb_lines = np.prod(levels)  # number of trial conditions
     H = np.zeros((nb_lines, n))
@@ -71,7 +55,7 @@ def fullfact_corrected(levels):
     level_repeat = 1
     range_repeat = np.prod(levels)
     for i in range(n):
-        range_repeat //= levels[i]
+        range_repeat //= levels[i]    # updated from range_repeat /= levels[i]
         lvl = []
         for j in range(levels[i]):
             lvl += [j]*level_repeat
@@ -112,6 +96,7 @@ def ff2n(n):
                [ 1.,  1.,  1.]])
        
     """
+    
     return 2*fullfact_corrected([2]*n) - 1
 
 ################################################################################
@@ -188,6 +173,7 @@ def fracfact(gen):
                [ 1.,  1., -1.,  1.,  1.]])
        
     """
+    
     # Recognize letters and combinations
     A = [item for item in re.split('\-?\s?\+?', gen) if item]  # remove empty strings
     C = [len(item) for item in A]
@@ -242,9 +228,6 @@ def _grep(haystack, needle):
                 locs += [idx]
         return locs
 
-
-#__all__ = ['bbdesign_corrected']
-
 def bbdesign_corrected(n, center=None):
     """
     Create a Box-Behnken design
@@ -286,6 +269,7 @@ def bbdesign_corrected(n, center=None):
                [ 0.,  0.,  0.]])
         
     """
+    
     assert n>=3, 'Number of variables must be at least 3'
     
     # First, compute a factorial DOE with 2 parameters
@@ -341,4 +325,5 @@ def repeat_center(n, repeat):
                [ 0.,  0.,  0.]])
        
     """
+    
     return np.zeros((repeat, n))
