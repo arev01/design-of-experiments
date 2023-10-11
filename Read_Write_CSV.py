@@ -13,7 +13,7 @@ def read_variables_csv(csvfile):
 
     dict_key={}
     try:
-        data = pd.read_csv(csvfile)
+        data = pd.read_csv(csvfile, sep=st.session_state["separator"], decimal=st.session_state["decimal"])
         lowercase = lambda x: str(x).lower()
         #data.rename(lowercase, axis="columns", inplace=True)
 
