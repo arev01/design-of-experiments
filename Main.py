@@ -63,15 +63,15 @@ if st.session_state["settings"] == "Advanced":
 
 in_file = st.file_uploader("Upload file", type="csv")
 
-dict_vars = read_variables_csv(in_file)
-df = pd.DataFrame(dict_vars)
-
-if st.checkbox("Show raw data"):
-    st.write(df)
-
-    st.markdown("---")
-
 if in_file:
+    dict_vars = read_variables_csv(in_file)
+    df = pd.DataFrame(dict_vars)
+    
+    if st.checkbox("Show raw data"):
+        st.write(df)
+    
+        st.markdown("---")
+        
     doe_choice = st.selectbox("Select the experiment design method", options=methods, key="select_method")
 
     df_updated, filename = generate_DOE(doe_choice, in_file)
