@@ -70,7 +70,10 @@ if in_file:
     if type(df) != int or type(filename) != int:
         out_file = write_csv(df)
 
-        #st.dataframe(df)
+        if st.checkbox("Show raw data"):
+            st.write(df)
+    
+            st.markdown("---")
 
         if len(df.columns) == 3:
             fig = go.Figure(data=[go.Scatter3d(
