@@ -6,6 +6,7 @@ import plotly.graph_objects as go
 from st_pages import Page, show_pages, add_page_title
 
 from Generate_DOE import *
+from Read_Write_CSV import *
 
 st.set_page_config(
     page_title="Home",
@@ -62,28 +63,33 @@ if st.session_state["settings"] == "Advanced":
 
 in_file = st.file_uploader("Upload file", type="csv")
 
+dict_vars = read_variables_csv(in_file)
+df = pd.DataFrame(dict_vars)
+
+if st.checkbox("Show raw data"):
+    st.write(df)
+
+    st.markdown("---")
+
 if in_file:
     doe_choice = st.selectbox("Select the experiment design method", options=methods, key="select_method")
 
-    df, filename = generate_DOE(doe_choice, in_file)
+    df_updated, filename = generate_DOE(doe_choice, in_file)
 
-    if type(df) != int or type(filename) != int:
-        out_file = write_csv(df)
+    if type(df_updated) != int or type(filename) != int:
+        out_file = write_csv(df_updated)
 
-        if st.checkbox("Show raw data"):
-            st.write(df)
-    
-            st.markdown("---")
+        st.write(df_updated)
 
-        if len(df.columns) == 3:
+        if len(df_updated.columns) == 3:
             fig = go.Figure(data=[go.Scatter3d(
-                x=df[df.keys()[0]], 
-                y=df[df.keys()[1]], 
-                z=df[df.keys()[2]], 
+                x=df_updated[df_updated.keys()[0]], 
+                y=df_updated[df_updated.keys()[1]], 
+                z=df_updated[df_updated.keys()[2]], 
                 mode='markers')])
 
             #fig.update_layout(aspectmode='cube')
-            fig.update_scenes(aspectmode='cube',xaxis_title=df.columns[0],yaxis_title=df.columns[1],zaxis_title=df.columns[2])
+            fig.update_scenes(aspectmode='cube',xaxis_title=df_updated.columns[0],yaxis_title=df_updated.columns[1],zaxis_title=df_updated.columns[2])
 
             st.plotly_chart(fig)
 
