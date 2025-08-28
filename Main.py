@@ -74,7 +74,7 @@ if in_file:
         
     doe_choice = st.selectbox("Select the experiment design method", options=methods, key="select_method")
 
-    df_updated, filename = generate_DOE(doe_choice, in_file)
+    df_updated, filename = generate_DOE(doe_choice, dict_vars)
 
     if type(df_updated) != int or type(filename) != int:
         out_file = write_csv(df_updated)
