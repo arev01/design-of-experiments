@@ -74,9 +74,6 @@ if in_file:
         
     doe_choice = st.selectbox("Select the experiment design method", options=methods, key="select_method")
 
-    from Read_Write_CSV import *
-    dict_vars = read_variables_csv(in_file)
-    st.write(dict_vars)
     df_updated, filename = generate_DOE(doe_choice, in_file)
 
     if type(df_updated) != int or type(filename) != int:
