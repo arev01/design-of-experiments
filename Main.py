@@ -81,7 +81,18 @@ if in_file:
 
         st.write(df_updated)
 
-        if len(df_updated.columns) == 3:
+        if len(df_updated.columns) == 2:
+            fig = go.Figure(data=[go.Scatter(
+                x=df_updated[df_updated.keys()[0]], 
+                y=df_updated[df_updated.keys()[1]],
+                mode='markers')])
+
+            #fig.update_layout(aspectmode='cube')
+            fig.update_scenes(aspectmode='cube',xaxis_title=df_updated.columns[0],yaxis_title=df_updated.columns[1],)
+
+            st.plotly_chart(fig)
+            
+        elif len(df_updated.columns) == 3:
             fig = go.Figure(data=[go.Scatter3d(
                 x=df_updated[df_updated.keys()[0]], 
                 y=df_updated[df_updated.keys()[1]], 
