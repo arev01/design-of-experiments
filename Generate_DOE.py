@@ -14,6 +14,9 @@ def generate_DOE(doe_choice, infile):
     """
     
     dict_vars = read_variables_csv(infile)
+    import pandas as pd
+    df = pd.DataFrame(dict_vars)
+    st.write(df)
     # if type(dict_vars)!=int:
     #     factor_count=len(dict_vars)
     # else:
