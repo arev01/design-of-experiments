@@ -1,22 +1,18 @@
 import streamlit as st
 
 from DOE_functions import *
-from Read_Write_CSV import *
 
 # ====================================================================
 # Function to generate the DOE based on user's choice and input file
 # ====================================================================
 
-def generate_DOE(doe_choice, infile):
+def generate_DOE(doe_choice, dict_vars):
     """
     Generates the output design-of-experiment matrix by calling the appropriate function from the "DOE_function.py file".
     Returns the generated DataFrame (Pandas) and a filename (string) corresponding to the type of the DOE sought by the user. This filename string is used by the CSV writer function to write to the disk i.e. save the generated DataFrame in a CSV format.
     """
     
-    dict_vars = read_variables_csv(infile)
-    import pandas as pd
-    df = pd.DataFrame(dict_vars)
-    st.write(df)
+    #dict_vars = read_variables_csv(infile)
     # if type(dict_vars)!=int:
     #     factor_count=len(dict_vars)
     # else:
