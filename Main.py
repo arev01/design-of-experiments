@@ -3,7 +3,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
-from st_pages import Page, show_pages, add_page_title
+#from st_pages import Page, show_pages, add_page_title
 
 from Generate_DOE import *
 from Read_Write_CSV import *
@@ -15,13 +15,13 @@ st.set_page_config(
 
 # Specify what pages should be shown in the sidebar, and what their titles 
 # and icons should be
-show_pages(
-    [
-        Page("Main.py", "Home", "🏠"),
-        Page("pages/1_Help.py", "Help", ":question:"),
-        Page("pages/2_Config.py", "Config", ":gear:"),
-    ]
-)
+#show_pages(
+#    [
+#        Page("Main.py", "Home", "🏠"),
+#        Page("pages/1_Help.py", "Help", ":question:"),
+#        Page("pages/2_Config.py", "Config", ":gear:"),
+#    ]
+#)
 
 st.write("# Design of Experiments - DoE")
 
