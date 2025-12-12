@@ -16,6 +16,7 @@ def read_variables_csv(csvfile):
     try:
         data = pd.read_csv(csvfile, sep=st.session_state["separator"], decimal=st.session_state["decimal"])
         data = data.select_dtypes(exclude=['str'])
+        data = data.drop('id', axis=1)
         lowercase = lambda x: str(x).lower()
         #data.rename(lowercase, axis="columns", inplace=True)
 
