@@ -65,6 +65,7 @@ in_file = st.file_uploader("Upload file", type="csv")
 
 if in_file:
     dict_vars = read_variables_csv(in_file)
+    pd.options.future.infer_string = True
     df = pd.DataFrame(dict_vars).select_dtypes(exclude=['str'])
     
     if st.checkbox("Show raw data"):
