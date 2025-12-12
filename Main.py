@@ -74,12 +74,11 @@ if in_file:
         
     doe_choice = st.selectbox("Select the experiment design method", options=methods, key="select_method")
 
-    try:
-        del dict_vars['id']
-    except KeyError:
-        pass
+    filtered_dict_vars = {
+        key: value for key, value in dict_vars.items() if key != 'id' and not all(isinstance(value, str) for value in dict_vars[key])
+    }
         
-    df_updated, filename = generate_DOE(doe_choice, dict_vars)
+    df_updated, filename = generate_DOE(doe_choice, filtered_dict_vars)
 
     if type(df_updated) != int or type(filename) != int:
         out_file = write_csv(df_updated)
