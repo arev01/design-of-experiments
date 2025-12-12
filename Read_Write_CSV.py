@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-pd.options.future.infer_string = True
+#pd.options.future.infer_string = True
 
 # ==========================================================
 # Function for reading a CSV file into a dictionary format
@@ -15,7 +15,7 @@ def read_variables_csv(csvfile):
     dict_key={}
     try:
         data = pd.read_csv(csvfile, sep=st.session_state["separator"], decimal=st.session_state["decimal"])
-        data = data.select_dtypes(exclude=['str'])
+        #data = data.select_dtypes(exclude=['str'])
         lowercase = lambda x: str(x).lower()
         #data.rename(lowercase, axis="columns", inplace=True)
 
